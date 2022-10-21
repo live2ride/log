@@ -2,8 +2,6 @@
 const { forEach, isPlainObject, map, split } = require("lodash");
 var colors = require("colors");
 //https://www.npmjs.com/package/colors
-const useTrace =
-  process.env.NODE_ENV === "prod" || process.env.TESTING ? true : false;
 
 const removeStream = (o) => {
   forEach(o, (value, key) => {
@@ -65,7 +63,7 @@ const getColor = (colorProps, ...props) => {
 const color = (colorProps, ...props) => {
   const logProps = getColor(colorProps, ...props);
 
-  if (useTrace) {
+  if (process.env.TRACE_LOG) {
     console.trace(...logProps);
   } else {
     console.log(...logProps);

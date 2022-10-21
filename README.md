@@ -2,10 +2,6 @@
 
 quick way to print colors to console
 
-# Installation
-
-`npm i @live2ride/log`
-
 # Example usage
 
 ```
@@ -25,6 +21,9 @@ quick way to print colors to console
 
 
     log.color(@color_using_color_module, ...objects)
+
+
+    if you want to use trace set process.env.TRACE_LOG = true
 ```
 
 colors:
