@@ -1,11 +1,15 @@
 "use strict";
-const { forEach, isPlainObject, map, split } = require("lodash");
+const forEach = require("lodash/forEach");
+const isPlainObject = require("lodash/isPlainObject");
+const map = require("lodash/map");
+const split = require("lodash/split");
+
 var colors = require("colors");
 //https://www.npmjs.com/package/colors
 
 const removeStream = (o) => {
   forEach(o, (value, key) => {
-    if (_sPlainObject(value)) {
+    if (isPlainObject(value)) {
       removeStream(value);
     } else {
       if (value?.length > 7200) {
@@ -63,11 +67,13 @@ const getColor = (colorProps, ...props) => {
 const color = (colorProps, ...props) => {
   const logProps = getColor(colorProps, ...props);
 
-  if (process.env.TRACE_LOG) {
-    console.trace(...logProps);
-  } else {
-    console.log(...logProps);
-  }
+  console.log(...logProps);
+
+  // if (process.env.TRACE_LOG && !["green"].includes(colorProps)) {
+  //   console.trace(...logProps);
+  // } else {
+  //   console.log(...logProps);
+  // }
 };
 
 const dev = (...props) => {
