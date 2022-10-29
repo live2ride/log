@@ -1,13 +1,17 @@
 # Description
 
-quick way to print colors to console
+Simple way to print to console using [colors](https://www.npmjs.com/package/colors)
 
 # Example usage
 
 ```
     const log = require("@live2ride/log")
 
+    log.cyan("obj", ...err)
+
     log.success("success");
+
+    log.warning("warning");
 
     const err = {
         code: 1234,
@@ -15,21 +19,17 @@ quick way to print colors to console
     }
     log.error("my error obj", err)
 
-    log.cyan("obj", ...err)
+
 
     log.trace("some message");
 
-
-    log.color(@color_using_color_module, ...objects)
-
-
-    if you want to use trace set process.env.TRACE_LOG = true
 ```
 
 colors:
-info
-success
-warning
-error
-dev
-trace
+
+- info
+- success
+- warning
+- error
+- dev
+- trace
